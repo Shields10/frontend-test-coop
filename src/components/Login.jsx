@@ -108,7 +108,7 @@ const Login = ({ setAccessToken }) => {
   return (
     <ThemeProvider theme={defaultTheme}>
       <Grid container component="main" sx={{ height: '100vh', justifyContent: 'center', alignItems: 'center' }}>
-        <Grid item xs={12} sm={10} md={8} sx={{ height: '60vh' }}>
+        <Grid item xs={12} sm={10} md={8} sx={{ height: '70vh' }}>
           <Grid container sx={{ height: '100%' }}>
             <Grid item xs={false} sm={4} md={5} sx={{ height: '100%' }}>
           
@@ -137,7 +137,7 @@ const Login = ({ setAccessToken }) => {
               >
                 <Card sx={{ width: '100%', maxWidth: 400, boxShadow: 'none', border: 'none' }}>
                 <CardMedia
-                    sx={{ position: 'absolute',height: '10%', width: '10%',bottom: '67%', right: '22%'}}
+                    sx={{ position: 'absolute',height: '10%', width: '10%',bottom: '73%', right: '21%'}}
                     image={GreenLeaves}
                      alt="green-leaves"
                   />
@@ -148,6 +148,9 @@ const Login = ({ setAccessToken }) => {
                     </Typography>
                     <Typography variant="h6" gutterBottom sx={{ color:'green'}}>
                            Inua Mkulima- Subsidy Program
+                    </Typography>
+                    <Typography variant="subtitle2" gutterBottom sx={{ color:'grey', fontWeight: 'bold'}}>
+                           Enter your username and password to continue
                     </Typography>
     
                     <Box component="form" noValidate sx={{ mt: 1 }} onSubmit={handleSubmit}>
