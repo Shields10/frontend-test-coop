@@ -3,11 +3,16 @@ import { Container, Box, Typography, Toolbar, AppBar, Drawer, List, ListItem, Li
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import Header from '../assets/header.png';
+import LogoutIcon from '@mui/icons-material/Logout';
+
+import { useNavigate } from 'react-router-dom';
+
 const drawerWidth = 240;
 
-const Dashboard = () => {
+const Dashboard = ({ setAccessToken }) => {
   const [products, setProducts] = useState([]);
   const [selectedProducts, setSelectedProducts] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch('https://dummyjson.com/products')
@@ -21,6 +26,11 @@ const Dashboard = () => {
   const handleRemoveProduct = (productId) => {
     setSelectedProducts(selectedProducts.filter(product => product.id !== productId));
   };
+  const handleLogout = () => {
+    setAccessToken(null); // Clear the access token
+    navigate('/login'); // Navigate back to the login page
+  };
+
   return (
     <Box sx={{ display: 'flex' }}>
         <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1, backgroundImage: `url(${Header})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', }} >     
@@ -28,7 +38,14 @@ const Dashboard = () => {
           <Typography variant="h6" noWrap component="div">
             Inua Mkulima Subsidy Program
           </Typography>
-          <Button color="inherit" sx={{ marginLeft: 'auto' }}>Log Out</Button>
+
+          <Button style={{ color: 'white' }}
+                        startIcon={<LogoutIcon />}
+                        sx={{ marginLeft: 'auto' }} onClick={handleLogout}
+                        color="ochre" 
+                      >
+                        Log out
+                      </Button>
         </Toolbar>
       </AppBar>
 

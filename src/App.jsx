@@ -11,8 +11,8 @@ function App() {
       <Routes>
          <Route path="*" element={accessToken ? <Navigate to="/dashboard" /> : <Navigate to="/login" />} />
          <Route path="/login" element={<Login setAccessToken={setAccessToken} />} />
-         <Route path="/dashboard" element={<Dashboard />} />
-      </Routes> 
+         <Route path="/dashboard" element={<Dashboard setAccessToken={setAccessToken} />} />
+         </Routes> 
     </BrowserRouter>
     </>
   )
